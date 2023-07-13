@@ -7,7 +7,9 @@ import { Data } from './data'
 
 const Main = () => {
   const get=localStorage.getItem("zain")
-  const [cartData,setCartData]= useState(JSON.parse(get))
+  const xyz=JSON.parse(get)
+  // console.log(xyz);
+  const [cartData,setCartData]= useState(xyz===null?[]:xyz)
   // console.log(cartData);
   useEffect(()=>{
 
