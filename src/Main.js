@@ -7,8 +7,8 @@ import { Data } from './data'
 
 const Main = () => {
   const get=localStorage.getItem("zain")
-  
-  const [cartData,setCartData]= useState([JSON.parse(get)])
+  const [cartData,setCartData]= useState(JSON.parse(get))
+  // console.log(cartData);
   useEffect(()=>{
 
   localStorage.setItem("zain",JSON.stringify(cartData))
