@@ -5,7 +5,7 @@ import cartImg from '../images/your cart.png'
 const Cart = ({cartData ,removeCartdata, sup}) => {
   return (
     <>
-      <Header sup={sup}/>
+      <Header cartData={cartData}/>
       <div className='pageImg'><img src={cartImg} alt="" /></div>
       <div className="container">
       {

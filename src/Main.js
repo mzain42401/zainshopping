@@ -8,7 +8,7 @@ import { Data } from './data'
 const Main = () => {
   const get=localStorage.getItem("zain")
   
-  const [cartData,setCartData]= useState(JSON.parse(get))
+  const [cartData,setCartData]= useState([JSON.parse(get)])
   useEffect(()=>{
 
   localStorage.setItem("zain",JSON.stringify(cartData))
@@ -20,7 +20,8 @@ const Main = () => {
     setCartData([...cartData,onclickData])
 
   }
-  const removeCartdata=(elem,index)=>{
+
+const removeCartdata=(elem,index)=>{
     cartData.splice(index,1)
     setCartData([...cartData])
     
@@ -30,9 +31,9 @@ const Main = () => {
     <>
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={<Home Data={Data} addCart={addCart} sup={cartData.length} />}/>
+      <Route path='/' element={<Home Data={Data} addCart={addCart} cartData={cartData} removeCartdata={removeCartdata}/>}/>
     
-      <Route path='/cart' element={<Cart cartData={cartData} removeCartdata={removeCartdata} sup={cartData.length}/>}/>
+      <Route path='/cart' element={<Cart cartData={cartData} removeCartdata={removeCartdata} />}/>
 
       
     </Routes>
